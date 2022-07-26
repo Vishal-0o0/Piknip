@@ -23,6 +23,8 @@ const User = require("./models/user")
 const port = process.env.PORT || 3000;
 
 
+
+
 const userRoutes = require("./routes/user");
 const picnicspotRoutes = require("./routes/picnicspots");
 const reviewRoutes = require("./routes/reviews");
@@ -83,6 +85,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+
+
+
+
 
 app.use((req, res, next)=>{
   if(!["/login","/register", "/"].includes(req.originalUrl)){
